@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple Markers</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 1025px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+var lat={{lat}};
+var long={{long}};
+console.log(lat);
+console.log(long);
+      function initMap() {
+        var myLatLng = {lat: 28.763, lng:77.144};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: myLatLng
+        });
+        for(i=0;i<lat.length-1;i++)
+{
+var la = parseFloat(lat[i]);
+var lo = parseFloat(long[i]);
+var u = {lat: la, lng: lo};
+
+        var marker = new google.maps.Marker({
+          position: u,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYd-84syqiWQNtDFuEbSyEw5CD6YU9wNg&callback=initMap">
+    </script>
+     <form action = "http://127.0.0.1:5000/map2" method = "POST">
+         <p>Initial Latitude<input type = "text" name = "Origin lat" /></p>
+         <p>Initial Longitude<input type = "text" name = "Origin long" /></p>
+         <p>Final Latitude<input type = "text" name = "Dest lat" /></p>
+         <p>Final Longitude<input type = "text" name = "Dest long" /></p>
+         <input type="submit" value="Submit">
+      </form>
+  </body>
+</html>
