@@ -1,0 +1,5 @@
+The anomalies I found in the given data is that, no data is given about which bus stops a particular bus covers. Only the route id is provided in the Routes.txt static data.
+So it is not possible to know how many different buses need to be taken from one initial position to another.
+
+So what i did is after taking initial and final coordinates, found an optimised route between the two, and found the bus stops present in the route. 
+On right clicking the bus stops indicated by the marker, the name of the bus stop is provided.
